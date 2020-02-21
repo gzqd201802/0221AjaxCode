@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./lib/jquery-1.12.4.min.js"></script>
+    <script>
+
+        // $.ajax({
+        //     type: "method",
+        //     url: "url",
+        //     data: "data",
+        //     dataType: "dataType",
+        //     success: function (response) {
+        //     }
+        // });
+
+
+
+        // 获取多条随机笑话，随机获取笑话的接口
+        // 请求地址：https://autumnfish.cn/api/joke/list
+        // 请求方法：get
+        // 请求参数：num
+        // 参数名	参数说明	备注
+        // num	笑话条数	类型为数字,不要给错了
+
+        // 补充了解： $.get()    $.post()
+
+
+        // $.get()  只用于处理 get 请求
+        // $.get(
+        //     // 请求地址
+        //     "https://autumnfish.cn/api/joke/list",
+        //     // 请求参数
+        //     {
+        //         num: 10
+        //     },
+        //     // 回调函数
+        //     function (data, textStatus, jqXHR) {
+        //         console.log(data);
+        //     },
+        //     // 响应数据类型
+        //     "json"
+        // );
+
+
+
+        // 用户验证
+        // 验证用户名是否可用
+        // 请求地址：https://autumnfish.cn/api/user/check
+        // 请求方法：post
+        // 请求参数：username
+        // 参数名	参数说明	备注
+        // username	用户名	不能为空,通过 send 方法传递，格式为 key=value
+        $.post(
+            "https://autumnfish.cn/api/user/check", 
+            {
+                username:'李白'
+            },
+            function (data, textStatus, jqXHR) {
+                console.log(data);
+            }
+        );
+
+
+
+    </script>
+</body>
+</html>

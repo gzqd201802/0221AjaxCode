@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./lib/jquery-1.12.4.min.js"></script>
+    <script>
+
+
+
+        // $.ajax({
+        //     // 1. 请求类型
+        //     type: '',
+        //     // 2. 请求地址
+        //     url: '',
+        //     // 3. 请求参数
+        //     data: {},
+        //     // 4. 回调函数 - 成功的回调函数
+        //     success: function (response) {
+        //     }
+        // });
+
+
+        // 获取多条随机笑话，随机获取笑话的接口
+        // 请求地址：https://autumnfish.cn/api/joke/list
+        // 请求方法：get
+        // 请求参数：num
+        // 参数名	参数说明	备注
+        // num	笑话条数	类型为数字,不要给错了
+
+        $.ajax({
+            // 1. 请求类型
+            type: 'get',
+            // 2. 请求地址
+            url: 'https://autumnfish.cn/api/joke/list',
+            // 3. 请求参数
+            data: {
+                num: 5
+            },
+            // 4. 回调函数 - 成功的回调函数
+            success: function (response) {
+                console.log(response);
+            }
+        });
+
+
+        // 通过 jQuery Code Snippets ，输入 jqajax 可快速生成以下代码
+        $.ajax({
+            type: "method",
+            url: "url",
+            data: "data",
+            dataType: "dataType",
+            success: function (response) {
+                
+            }
+        });
+
+        // 插件重点注意：
+        //      1. 通过插件生成的 $.ajax() 结构中，默认生成 dataType 项
+        //      2. 自动生成的 dataType 默认值有问题
+        //      3. dataType 删除该属性，可让 jq 智能识别
+        //      3. dataType: 'json'，让 jq 尝试转换成 json
+
+
+    </script>
+</body>
+
+</html>
