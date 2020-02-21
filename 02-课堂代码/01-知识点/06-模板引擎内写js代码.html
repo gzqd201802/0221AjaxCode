@@ -22,6 +22,7 @@
 <!-- 2. 定义模板 -->
 <script id="person" type="text/html">
   <h1>自我介绍，我是 {{ name }}</h1>
+  <!-- 不考虑复姓的情况，通过字符串自带方法提取出 姓 和 名 -->
   <h2>姓：{{ name.charAt(0) }}</h2>
   <h2>名：{{ name.slice(1) }}</h2>
 </script>

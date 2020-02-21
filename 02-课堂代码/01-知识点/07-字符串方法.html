@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // .charAt(索引值)                 单个字符获取
+        // .slice(开始索引值, 结束索引值)   字符串提取
+        // .split('分隔符')                把字符串分隔成数组
+        // .indexOf('字符串')              查找字符串索引值，常用于查找字符串中是否存在某个词
+
+        
+        // let str = '高温 38℃';
+
+        // // 默认的字符串
+        // console.log(str);
+        // // 字符串根据空格分隔成数组
+        // console.log(str.split(' '));
+        // // 提取数组的索引值为 0 的数据
+        // console.log(str.split(' ')[0]);
+        // // 提取数组的索引值为 1 的数据
+        // console.log(str.split(' ')[1]);
+
+
+        let str2 = '笑话给我讲个把。';
+
+        console.log(str2);
+        console.log(str2.indexOf('笑话'));   // 找到索引值
+        console.log(str2.indexOf('听歌'));   // 找不到返回 -1
+        
+        if( str2.indexOf('笑话') > -1 ){
+            alert('你笑');
+        }
+
+        // 小结：
+        //    indexOf() 找不到返回 -1，也就意味着找到 > -1 或写成  !== -1
+        
+
+    </script>
+</body>
+
+</html>
