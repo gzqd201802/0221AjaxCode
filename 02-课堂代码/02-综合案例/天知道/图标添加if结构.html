@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <style>
+        .iconfont {
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    {{ if $value.type.indexOf('小雨') > -1 }}
+    <!-- 小雨 -->
+    <span class="iconfont">&#xe931;</span>
+    {{ else if $value.type.indexOf('雨夹雪') > -1 }}
+    <!-- 雨夹雪 -->
+    <span class="iconfont">&#xe934;</span>
+    {{ else if $value.type.indexOf('雨') > -1 }}
+    <!-- 雨 -->
+    <span class="iconfont">&#xe932;</span>
+    {{ else if $value.type.indexOf('晴') > -1 }}
+    <!-- 晴 -->
+    <span class="iconfont">&#xe933;</span>
+    {{ else if $value.type.indexOf('阴') > -1 }}
+    <!-- 阴 -->
+    <span class="iconfont">&#xe92d;</span>
+    {{ else if $value.type.indexOf('风') > -1 }}
+    <!-- 风 -->
+    <span class="iconfont">&#xeb8c;</span>
+    {{ else if $value.type.indexOf('雪') > -1 }}
+    <!-- 雪 -->
+    <span class="iconfont">&#xeb87;</span>
+    {{ else if $value.type.indexOf('多云') > -1 }}
+    <!-- 多云 -->
+    <span class="iconfont">&#xeb79;</span>
+    {{ else if $value.type.indexOf('雷') > -1 }}
+    <!-- 雷 -->
+    <span class="iconfont">&#xeb77;</span>
+    {{ else if $value.type.indexOf('冰雹') > -1 }}
+    <!-- 冰雹 -->
+    <span class="iconfont">&#xeb76;</span>
+    {{ else if $value.type.indexOf('雾霾') > -1 }}
+    <!-- 雾霾 -->
+    <span class="iconfont">&#xeb75;</span>
+    {{ /if }}
+
+    <!-- Ctrl + D   选择相同词 -->
+    <!-- Ctrl + Shift + 左/右    选择整个词 -->
+</body>
+
+</html>
