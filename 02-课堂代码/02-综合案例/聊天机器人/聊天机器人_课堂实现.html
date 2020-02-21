@@ -52,8 +52,7 @@
           1. 模板引擎
 
       功能2：获取姐姐的聊天内容
-        1. 点击发送按钮
-        2. 获取文本框的内容
+        在功能 1 的基础上继续实现以下功能。
         3. ajax调用接口
           1. $.ajax
         4. 数据回来之后渲染到页面上
@@ -80,6 +79,12 @@
       <img src="img/person02.png" /> <span>{{ text }}</span>
     </li>
   </script>
+  <!-- 左边的聊天气泡 -->
+  <script id="leftChat" type="text/html">
+    <li class="left_word">
+      <img src="img/person01.png" /> <span>{{ text }}</span>
+    </li>
+  </script>
   <script>
     // 功能1：点击生成自己的聊天框
     $(function () {
@@ -95,6 +100,7 @@
         //   3. 生成自己的聊天框 渲染到页面上
         //      1. 模板引擎 - 把自己准备的 script 模板替换成传入的内容，最终是字符串格式
         const htmlStr = template('rightChat', { text: str });
+        // 模板引擎返回的字符串可通过 append() 添加到页面中
         $('.talk_list').append(htmlStr);
         // $(htmlStr).appendTo('.talk_list');
 
@@ -103,7 +109,7 @@
         // 滚到聊天框底部 resetui() - 内部封装的方法
         resetui();
 
-
+        // 功能2：获取姐姐的聊天内容
         // 请求地址：http://www.tuling123.com/openapi/api
         // 请求方法：post
         // 请求参数：key,info
@@ -115,15 +121,26 @@
             key: 'd41e90126d5441a1ba4e9c15a709c8bf',
             info: str
           },
-          // dataType: "dataType",
           success: function (response) {
-            console.log(response);
+            // 调用左边的聊天框模板
+            const htmlStr = template('leftChat', response);
+            // 把模板引擎处理后的字符串动态添加到聊天框中
+            $('.talk_list').append(htmlStr);
+            // 滚动到聊天框底部
+            resetui();
           }
         });
 
-
       });
 
+      // 2. 按回车发送
+      $('.input_txt').keyup(function (e) {
+        // 回车键 
+        if(e.keyCode === 13){
+          // 触发发送按钮的点击事件
+          $('.input_sub').click();
+        }
+      });
     })
 
   </script>
