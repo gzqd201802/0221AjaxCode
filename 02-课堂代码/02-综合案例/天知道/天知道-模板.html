@@ -81,39 +81,40 @@
   {{ each forecast }}
     <li>
       <div class="info_type">
-          <!-- 小雨 -->
-          {{ if  $value.type.indexOf('小雨') > -1 }}
-          <span class="iconfont">&#xe932;</span>
-          <!-- 大雨 -->
-          {{ else if  $value.type.indexOf('大雨') > -1 }}
-          <span class="iconfont">&#xe931;</span>
-          <!-- 晴 -->
-          {{ else if  $value.type.indexOf('晴') > -1 }}
-          <span class="iconfont">&#xe933;</span>
-          <!-- 雨夹雪 -->
-          {{ else if  $value.type.indexOf('雨夹雪') > -1 }}
-          <span class="iconfont">&#xe934;</span>
-          <!-- 阴 -->
-          <span class="iconfont">&#xe92d;</span>
-          {{ else if  $value.type.indexOf('阴') > -1 }}
-          <!-- 风 -->
-          <span class="iconfont">&#xeb8c;</span>
-          {{ else if  $value.type.indexOf('风') > -1 }}
-          <!-- 雪 -->
-          <span class="iconfont">&#xeb87;</span>
-          {{ else if  $value.type.indexOf('多云') > -1 }}
-          <!-- 多云 -->
-          <span class="iconfont">&#xeb79;</span>
-          {{ else if  $value.type.indexOf('雷') > -1 }}
-          <!-- 雷 -->
-          <span class="iconfont">&#xeb77;</span>
-          {{ else if  $value.type.indexOf('冰雹') > -1 }}
-          <!-- 冰雹 -->
-          <span class="iconfont">&#xeb76;</span>
-          {{ else if  $value.type.indexOf('雾霾') > -1 }}
-          <!-- 雾霾 -->
-          <span class="iconfont">&#xeb75;</span>
-          {{ /if }}
+        {{ if $value.type.indexOf('小雨') > -1 }}
+        <!-- 小雨 -->
+        <span class="iconfont">&#xe932;</span>
+        {{ else if $value.type.indexOf('大雨') > -1 }}
+        <!-- 大雨 -->
+        <span class="iconfont">&#xe931;</span>
+        {{ else if $value.type.indexOf('晴') > -1 }}
+        <!-- 晴 -->
+        <span class="iconfont">&#xe933;</span>
+        {{ else if $value.type.indexOf('雨夹雪') > -1 }}
+        <!-- 雨夹雪 -->
+        <span class="iconfont">&#xe934;</span>
+        {{ else if $value.type.indexOf('阴') > -1 }}
+        <!-- 阴 -->
+        <span class="iconfont">&#xe92d;</span>
+        {{ else if $value.type.indexOf('风') > -1 }}
+        <!-- 风 -->
+        <span class="iconfont">&#xeb8c;</span>
+        {{ else if $value.type.indexOf('雪') > -1 }}
+        <!-- 雪 -->
+        <span class="iconfont">&#xeb87;</span>
+        {{ else if $value.type.indexOf('多云') > -1 }}
+        <!-- 多云 -->
+        <span class="iconfont">&#xeb79;</span>
+        {{ else if $value.type.indexOf('雷') > -1 }}
+        <!-- 雷 -->
+        <span class="iconfont">&#xeb77;</span>
+        {{ else if $value.type.indexOf('冰雹') > -1 }}
+        <!-- 冰雹 -->
+        <span class="iconfont">&#xeb76;</span>
+        {{ else if $value.type.indexOf('雾霾') > -1 }}
+        <!-- 雾霾 -->
+        <span class="iconfont">&#xeb75;</span>
+        {{ /if }}
       </div>
       <div class="info_temp">高 <b>{{ $value.high.split(' ')[1] }}</b><br />{{ $value.low }}</div>
       <div class="info_date"><b>{{ city }}</b><span>{{ $value.date }}</span></div>
