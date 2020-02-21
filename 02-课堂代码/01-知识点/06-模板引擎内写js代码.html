@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="box"></div>
+
+</body>
+
+</html>
+<!-- 1. 导入 -->
+<script src="./lib/template-web.js"></script>
+<!-- 导入jQ -->
+<script src="./lib/jquery-1.12.4.min.js"></script>
+<!-- 2. 定义模板 -->
+<script id="person" type="text/html">
+  <h1>自我介绍，我是 {{ name }}</h1>
+  <h2>姓：{{ name.charAt(0) }}</h2>
+  <h2>名：{{ name.slice(1) }}</h2>
+</script>
+<script>
+  // 3. 数据
+  const person = {
+    name: '周杰伦'
+  }
+  // 4. 调用方法
+  const htmlStr = template('person', person);
+
+  $('.box').html(htmlStr);
+
+</script>

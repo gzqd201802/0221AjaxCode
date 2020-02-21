@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="box"></div>
+
+</body>
+
+</html>
+<!-- 1. 导入 -->
+<script src="./lib/template-web.js"></script>
+<!-- 导入jQ -->
+<script src="./lib/jquery-1.12.4.min.js"></script>
+<!-- 2. 定义模板 -->
+<script id="person" type="text/html">
+  <h1>自我介绍，我是{{ name }}</h1>
+  <h2>我有以下几个朋友</h2>
+  <ul>
+    {{ each friend }}
+      <li>
+        <p>朋友的名字为: {{ $value.name }}</p>
+        <!-- 以下写法是一个 if，else if 整体，输出满足条件的一个 -->
+        {{ if $value.skill }}
+        <p>朋友的技能是：{{ $value.skill }}</p>
+        {{ else if $value.color }}
+        <p>朋友的毛色是：{{ $value.color }}</p>
+        {{ else if $value.message }}
+        <p>朋友的口头禅是：{{ $value.message }}</p>
+        {{ /if }}
+      </li>
+    {{ /each }}
+  </ul>
+</script>
+<script>
+  // 3. 数据
+  const person = {
+    name: '蔡徐坤',
+    friend: [
+      {
+        name: '杰伦',
+        skill: '打球'
+      },
+      {
+        name: '喜洋洋',
+        color: '白色'
+      },
+      {
+        name: '美少女战士',
+        message: '代表月亮消灭你'
+      }
+    ]
+  }
+  // 4. 调用方法
+  const htmlStr = template('person', person);
+
+  $('.box').html(htmlStr);
+
+</script>

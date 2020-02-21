@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box"></div>
+    <!--1. 导入  -->
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery-1.12.4.min.js"></script>
+    <!-- 2. 准备模板,id 和 type 属性 -->
+    <script id="p1" type="text/html">
+        <h1>这个英雄是 {{ name }}</h1>
+        <h2>有以下技能</h2>
+        <ul>
+            {{ each skills}}
+                <li>{{ $value }}</li>
+            {{ /each }}
+        </ul>
+
+        <h2>年龄是：{{ age }}</h2>
+        {{ if age < 18 }}
+            <p>你不能进入网吧</p>
+        {{ else if age > 25 }}
+            <p>你已经到达晚婚年龄</p>
+        {{ /if }}
+
+        <h2>打招呼</h2>
+        {{ if gender === '男'}}
+        <p>欢迎帅哥来到直播间。</p>
+        {{ else if gender === '女' }}
+        <p>有个漂亮小姐姐来了，欢迎欢迎。</p>
+        {{ else }}
+        <p>欢迎这位老铁。</p>
+        {{ /if }}
+    </script>
+    <script>
+        // 3. 准备数据
+        const person = {
+            name: '赵云',
+            skills: ['砍人', '枪刺', '疾跑'],
+            gender: '女',
+            age: 24,
+        }
+        // 4. template('id名',数据)
+        const htmlStr = template('p1', person);
+        // console.log(htmlStr);
+
+        $('.box').html(htmlStr);
+
+        // 重点注意：
+        //    1. 分支语法较为复杂些，书写的时候写完开始 {{ if }}，建议立刻写结束 {{ /if }}
+        //    2. else if 和 else 是写到 {{if}}  {{/if}} 中间
+        //    3. 大于号小于号需要用空格隔开
+
+    </script>
+</body>
+
+</html>
